@@ -30,6 +30,9 @@ function App() {
       }
    }
 
+   function handelDeleteTodo(index: number) {
+      setTodoList(todoList.filter((_, i) => index !== i));
+   }
    return (
       <div className="flex h-screen w-screen select-none justify-center p-4">
          <section className="flex w-full flex-col gap-5 md:w-[768px]">
@@ -74,7 +77,11 @@ function App() {
                               <p className="truncate">{todo}</p>
                            </div>
                            <div className="flex items-center gap-2">
-                              <button className="" type="button">
+                              <button
+                                 className=""
+                                 type="button"
+                                 onClick={() => handelDeleteTodo(index)}
+                              >
                                  <FontAwesomeIcon icon={faTrashCan} />
                               </button>
                            </div>
